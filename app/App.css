@@ -1,0 +1,20 @@
+body {
+	font-family:sans-serif;
+	font-size:10pt;
+}
+
+header, footer {
+	color:#999;
+}
+
+section {
+	margin:16pt 0;
+}
+
+input[type='button'] {
+	padding:8pt;
+}
+
+.highlight {
+	font-weight:bold;
+}
