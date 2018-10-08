@@ -14,16 +14,17 @@ var appState = {
 // Data related to page. Maybe from a db or service.
 var options = null
 
+// Arrow function to localise the 'title' attribs of the data
+var localiseTitle = (item, localiseText) => { item.title = localiseText(item.title) }
+
 // Loads data from resource
 async function loadData() {
-	// Get options from server
-	options = await fetch('../res/data.json')
-		.then(response => response.json())
-		.then(json => json)
-	
-	// Localise options
-	let localiseTitle = (item, localiseText) => { item.title = localiseText(item.title) }
-	await L10N.localiseList(options, localiseTitle)
+	return fetch('../res/data.json') // Get options from server
+		.then(response => response.json()) // Convert to json
+		.then(json => {
+			options = json // Set options to json
+			return L10N.localiseList(options, localiseTitle) // Localise options
+		})
 }
 
 // Show visitor item selection
@@ -65,9 +66,7 @@ var application = {
 	state: appState,
 	showSelection: showSelection,
 	selectItem: selectItem,
-	confirmItem: confirmItem,
-	L10N: L10N,
-	loadData: loadData
+	confirmItem: confirmItem
 }
 
 // Create views
@@ -82,9 +81,6 @@ window.addEventListener('load', async event => {
 	// Expose app to console for debugging
 	window.app = application
 
-	// Load data
-	await loadData()
-
-	// Show first stage
-	showSelection()
+	// Load data then show first stage
+	loadData().then(() => showSelection())
 })
