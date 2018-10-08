@@ -66,7 +66,11 @@ var application = {
 	state: appState,
 	showSelection: showSelection,
 	selectItem: selectItem,
-	confirmItem: confirmItem
+	confirmItem: confirmItem,
+	reloadWithLang: (lang) => {
+		L10N.overrideLanguage = lang
+		loadData().then(() => showSelection())
+	}
 }
 
 // Create views
