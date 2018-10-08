@@ -1,6 +1,6 @@
 import { PageFragment } from "../lib/PageFragment.mjs"
 import { View } from "../lib/View.mjs"
-import { L, localisationFilter } from "../lib/L10N.mjs"
+import { L, localiseView } from "../lib/L10N.mjs"
 
 // Page view
 var decisionFragment = new PageFragment(model => `
@@ -37,7 +37,7 @@ var ViewSelection = class extends View {
 			}
 		]
 
-		super(decisionFragment, eventMappings, localisationFilter)
+		super(decisionFragment, eventMappings, localiseView)
 	}
 }
 
