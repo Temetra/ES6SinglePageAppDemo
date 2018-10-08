@@ -1,16 +1,20 @@
 import { PageFragment } from "../lib/PageFragment.mjs"
 import { View } from "../lib/View.mjs"
 
+function L(text) {
+	return fetch('../res/localisation.fr.json')
+		.then(response => response.json())
+		.then(json => json.hasOwnProperty(text) ? json[text] : text)
+}
+
 // Page view
-var decisionFragment = new PageFragment(model => `
-
-	<h2>Hello ${model.name}</h2>
-	<p>Pick something from the list:</p>
-	<div>${nestedFragment.render(model.options)}</div>
-
+var decisionFragment = new PageFragment(async model => `
+	<h2>${await L`Hello`} ${model.name}</h2>
+	<p>${await L`Pick something from the list`}:</p>
+	<div>${await nestedFragment.render(model.options)}</div>
 `)
 
-var nestedFragment = new PageFragment(options => `
+var nestedFragment = new PageFragment(async options => `
 
 	${options.map(option => `
 		<input type="button" data-item="${option.id}" value="${option.value}" title="${option.title}"></input>

@@ -3,7 +3,6 @@ import { ViewSelection } from "./ViewSelection.mjs"
 import { ViewBadChoice } from "./ViewBadChoice.mjs"
 import { ViewConfirm } from "./ViewConfirm.mjs"
 import { ViewFinished } from "./ViewFinished.mjs"
-import { StringResource } from "../lib/StringResource.mjs"
 
 // App state, data provided by user etc
 var appState = {
