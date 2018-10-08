@@ -5,9 +5,11 @@ import { EventMapping, View } from "../lib/View.mjs"
 var selectedFragment = new PageFragment(model => `
 
 	<h2>${model.picked.title}?</h2>
-	<p style="font-size:72pt;">${model.picked.value}</p>
-	<div><a id="continue" href="">Continue</a></div>
-	<div><a id="return" href="">Cancel and return to selection</a></div>
+	<div class="image">${model.picked.value}</div>
+	<div class="confirm">
+		<input type="button" id="return" value="Cancel" title="Cancel and return to selection"></input>
+		<input type="button" id="continue" value="Continue" title="Continue"></input>
+	</div>
 
 `)
 

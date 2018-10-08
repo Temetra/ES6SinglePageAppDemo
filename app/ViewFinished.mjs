@@ -6,7 +6,9 @@ var selectedFragment = new PageFragment(model => `
 
 	<h2>Cheers ${model.name}</h2>
 	<p>You decided to buy ${model.picked.title.toLowerCase()}. ${Math.random() >= 0.5 ? 'Nice!' : 'Great!'}</p>
-	<div><a id="return" href="">Return</a></div>
+	<div class="finished">
+		<input type="button" id="return" value="Return" title="Return to selection"></input>
+	</div>
 
 `)
 

@@ -14,7 +14,7 @@ var decisionFragment = new PageFragment(model => `
 var nestedFragment = new PageFragment(options => `
 
 	${options.map(option => `
-		<input type="button" data-item="${option.id}" value="${option.value}" title="${option.title}"></input>
+		<input type="button" class="option" data-item="${option.id}" value="${option.value}" title="${option.title}"></input>
 	`).join('')}
 
 `)

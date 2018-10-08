@@ -4,9 +4,9 @@ import { EventMapping, View } from "../lib/View.mjs"
 // Page view
 var selectedFragment = new PageFragment(model => `
 
-	<h2>WTF? ${model.picked.title}?</h2>
+	<h2>Wait... ${model.picked.title.toLowerCase()}?</h2>
 	<p>Why on earth are you buying ${model.picked.title.toLowerCase()}?</p>
-	<p style="font-size:72pt;">${model.picked.value}</p>
+	<div class="image">${model.picked.value}</div>
 	<div><a id="return" href="">Sorry, take me back to the list</a></div>
 
 `)

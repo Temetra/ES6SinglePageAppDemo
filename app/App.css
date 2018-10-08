@@ -1,18 +1,77 @@
+html, body {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
 body {
 	font-family:sans-serif;
 	font-size:10pt;
+	box-sizing:border-box;
+	max-width:500px;
+	margin:0 auto;
+	padding:8pt;
 }
 
 header, footer {
-	color:#999;
+	color:#ccc;
 }
 
-section {
+header {
+	margin:0 0 8pt 0;
+}
+
+footer {
 	margin:16pt 0;
 }
 
-input[type='button'] {
+section h2 {
+	margin:8pt 0 0 0;
+}
+
+div.confirm, div.finished {
+	text-align:center;
+	height:40pt;
+}
+
+div.confirm input {
+	width:45%;
+	height:100%;
+	margin:0 1%;
+}
+
+div.confirm input[id='return'] {
+	background-color:#e5e5e5;
+	border:1px solid #b3b3b3;
+}
+
+div.confirm input[id='continue'] {
+	background-color:#c9f0ff;
+	border:1px solid #68bdd4;
+}
+
+div.finished {
+	padding:16pt 0;
+}
+
+div.finished input {
+	width:45%;
+	height:100%;
+}
+
+input.option {
+	font-size:32pt;
+	box-sizing:border-box;
+	margin:1.5pt 0;
 	padding:8pt;
+	width:64pt;
+	height:64pt;
+}
+
+div.image {
+	font-size:92pt;
+	text-align:center;
+	padding:15% 0 20% 0;
 }
 
 .highlight {
