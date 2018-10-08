@@ -20,8 +20,8 @@ function returnEvent(event, application) {
 // View object to maintain application reference for events
 var ViewBadChoice = class extends View {
 	constructor(application) {
-		let eventMappings = [new EventMapping("#return", 'click', (event) => { returnEvent(event, application) })]
-		super(selectedFragment, eventMappings)
+		let returnMap = new EventMapping("#return", 'click', (event) => { returnEvent(event, application) })
+		super(selectedFragment, returnMap)
 	}
 }
 

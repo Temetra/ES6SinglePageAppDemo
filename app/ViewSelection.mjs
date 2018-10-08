@@ -29,8 +29,8 @@ function buttonEvent(event, application) {
 // Events use an arrow function closure to pass application to callback
 var ViewSelection = class extends View {
 	constructor(application) {
-		let eventMappings = [new EventMapping("input[type='button']", 'click', (event) => { buttonEvent(event, application) })]
-		super(decisionFragment, eventMappings, L10N.localiseView)
+		let mapButton = new EventMapping("input[type='button']", 'click', (event) => { buttonEvent(event, application) })
+		super(decisionFragment, mapButton, L10N.localiseView)
 	}
 }
 

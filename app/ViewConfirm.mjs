@@ -25,11 +25,9 @@ function continueEvent(event, application) {
 // View object to maintain application reference for events
 var ViewConfirm = class extends View {
 	constructor(application) {
-		let eventMappings = [
-			new EventMapping('#return', 'click', (event) => { returnEvent(event, application) }),
-			new EventMapping('#continue', 'click', (event) => { continueEvent(event, application) })
-		]
-		super(selectedFragment, eventMappings)
+		let returnMap = new EventMapping('#return', 'click', (event) => { returnEvent(event, application) })
+		let continueMap = new EventMapping('#continue', 'click', (event) => { continueEvent(event, application) })
+		super(selectedFragment, returnMap, continueMap)
 	}
 }
 
