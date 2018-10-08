@@ -3,6 +3,7 @@ import { ViewSelection } from "./ViewSelection.mjs"
 import { ViewBadChoice } from "./ViewBadChoice.mjs"
 import { ViewConfirm } from "./ViewConfirm.mjs"
 import { ViewFinished } from "./ViewFinished.mjs"
+import { L10N } from "../lib/L10N.mjs"
 
 // App state, data provided by user etc
 var appState = {
@@ -60,7 +61,8 @@ var application = {
 	state: appState,
 	showSelection: showSelection,
 	selectItem: selectItem,
-	confirmItem: confirmItem
+	confirmItem: confirmItem,
+	L10N: L10N
 }
 
 // Create views
