@@ -25,6 +25,9 @@ async function loadData() {
 			options = json // Set options to json
 			return L10N.localiseList(options, localiseTitle) // Localise options
 		})
+		.catch(() => { 
+			options = []  // Set options to empty array
+		})
 }
 
 // Show visitor item selection
