@@ -1,5 +1,5 @@
 import { PageFragment } from "../lib/PageFragment.mjs"
-import { View } from "../lib/View.mjs"
+import { EventMapping, View } from "../lib/View.mjs"
 
 // Page view
 var selectedFragment = new PageFragment(model => `
@@ -20,10 +20,7 @@ function returnEvent(event, application) {
 // View object to maintain application reference for events
 var ViewBadChoice = class extends View {
 	constructor(application) {
-		let eventMappings = [
-			{ target: '#return', type: 'click', listener: (event) => { returnEvent(event, application) } }
-		]
-
+		let eventMappings = [new EventMapping("#return", 'click', (event) => { returnEvent(event, application) })]
 		super(selectedFragment, eventMappings)
 	}
 }

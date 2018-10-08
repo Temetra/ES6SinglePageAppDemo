@@ -1,5 +1,5 @@
 import { PageFragment } from "../lib/PageFragment.mjs"
-import { View } from "../lib/View.mjs"
+import { EventMapping, View } from "../lib/View.mjs"
 import { L, L10N } from "../lib/L10N.mjs"
 
 // Page view
@@ -29,14 +29,7 @@ function buttonEvent(event, application) {
 // Events use an arrow function closure to pass application to callback
 var ViewSelection = class extends View {
 	constructor(application) {
-		let eventMappings = [
-			{ 
-				target: "input[type='button']", 
-				type: 'click', 
-				listener: (event) => { buttonEvent(event, application) } 
-			}
-		]
-
+		let eventMappings = [new EventMapping("input[type='button']", 'click', (event) => { buttonEvent(event, application) })]
 		super(decisionFragment, eventMappings, L10N.localiseView)
 	}
 }
