@@ -1,1 +1,4 @@
-{ "Hello": "Bonjour" }
+{ 
+	"Hello": "Bonjour",
+	"Pick something from the list": "Choisissez quelque chose dans la liste"
+}
