@@ -1,0 +1,9 @@
+[
+	{ "id": "option1", "value":"🌺", "title":"Flowers" },
+	{ "id": "option2", "value":"🌭", "title":"Hotdogs" },
+	{ "id": "option3", "value":"🥔", "title":"Potatoes" },
+	{ "id": "option4", "value":"🍉", "title":"Watermelon" },
+	{ "id": "option5", "value":"🥗", "title":"Salad", "badChoice": true },
+	{ "id": "option50", "value":"🔪", "title":"A Knife" },
+	{ "id": "option51", "value":"📡", "title":"A Satellite Antenna" }
+]

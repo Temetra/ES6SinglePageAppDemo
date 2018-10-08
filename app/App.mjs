@@ -12,15 +12,19 @@ var appState = {
 }
 
 // Data related to page. Maybe from a db or service.
-var options = [
-	{ id: 'option1', value:'🌺', title:'Flowers' },
-	{ id: 'option2', value:'🌭', title:'Hotdogs' },
-	{ id: 'option3', value:'🥔', title:'Potatoes' },
-	{ id: 'option4', value:'🍉', title:'Watermelon' },
-	{ id: 'option5', value:'🥗', title:'Salad', badChoice: true },
-	{ id: 'option50', value:'🔪', title:'A Knife' },
-	{ id: 'option51', value:'📡', title:'A Satellite Antenna' },
-]
+var options = null
+
+// Loads data from resource
+async function loadData() {
+	// Get options from server
+	options = await fetch('../res/data.json')
+		.then(response => response.json())
+		.then(json => json)
+	
+	// Localise options
+	let localiseTitle = (item, localiseText) => { item.title = localiseText(item.title) }
+	await L10N.localiseList(options, localiseTitle)
+}
 
 // Show visitor item selection
 function showSelection() {
@@ -62,7 +66,8 @@ var application = {
 	showSelection: showSelection,
 	selectItem: selectItem,
 	confirmItem: confirmItem,
-	L10N: L10N
+	L10N: L10N,
+	loadData: loadData
 }
 
 // Create views
@@ -73,9 +78,12 @@ var confirmView = new ViewConfirm(application)
 var finishedView = new ViewFinished(application)
 
 // Display when ready
-window.addEventListener('load', event => {
+window.addEventListener('load', async event => {
 	// Expose app to console for debugging
 	window.app = application
+
+	// Load data
+	await loadData()
 
 	// Show first stage
 	showSelection()
