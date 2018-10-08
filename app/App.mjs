@@ -19,7 +19,7 @@ var localiseTitle = (item, localiseText) => { item.title = localiseText(item.tit
 
 // Loads data from resource
 async function loadData() {
-	return fetch('../res/data.json') // Get options from server
+	return fetch('res/data.json') // Get options from server
 		.then(response => response.json()) // Convert to json
 		.then(json => {
 			options = json // Set options to json
