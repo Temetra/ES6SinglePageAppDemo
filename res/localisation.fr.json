@@ -1,5 +1,11 @@
 { 
 	"Hello": "Bonjour",
 	"Pick something from the list": "Choisissez quelque chose dans la liste",
-	"Potatoes": "Patates"
+	"Flowers": "Fleurs",
+	"Hotdogs": "Chiens chauds",
+	"Potatoes": "Patates",
+	"Watermelon": "Pastèque",
+	"Salad": "Salade",
+	"A Knife": "Un couteau",
+	"A Satellite Antenna": "Une antenne satellite"
 }
