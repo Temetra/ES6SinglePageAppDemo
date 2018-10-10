@@ -1,8 +1,8 @@
-import { LocalisedPageFragment } from "../lib/LocalisedPageFragment.mjs"
+import { LocalisedViewTemplate } from "../lib/LocalisedViewTemplate.mjs"
 import { View } from "../lib/View.mjs"
 
 // Page view
-var fragment = new LocalisedPageFragment(stage => `
+var fragment = new LocalisedViewTemplate(stage => `
 
 	<span class="${highlight(1, stage)}">Choose</span> &raquo; 
 	<span class="${highlight(2, stage)}">Confirm</span> &raquo; 

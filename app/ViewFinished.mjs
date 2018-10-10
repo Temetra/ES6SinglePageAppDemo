@@ -1,8 +1,8 @@
-import { PageFragment } from "../lib/PageFragment.mjs"
+import { ViewTemplate } from "../lib/ViewTemplate.mjs"
 import { EventMapping, View } from "../lib/View.mjs"
 
 // Page view
-var selectedFragment = new PageFragment(model => `
+var selectedFragment = new ViewTemplate(model => `
 
 	<h2>Cheers ${model.name}</h2>
 	<p>You decided to buy ${model.picked.title.toLowerCase()}. ${Math.random() >= 0.5 ? 'Nice!' : 'Great!'}</p>

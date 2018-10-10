@@ -1,4 +1,4 @@
-import { PageFragment, lineBreakFilter, consoleFilter } from "../lib/PageFragment.mjs"
+import { ViewTemplate, lineBreakFilter, consoleFilter } from "../lib/ViewTemplate.mjs"
 import { EventMapping, View } from "../lib/View.mjs"
 import { L, L10N } from "../lib/L10N.mjs"
 
@@ -29,7 +29,7 @@ function buttonEvent(event, application) {
 // Events use an arrow function closure to pass application to callback
 var ViewSelection = class extends View {
 	constructor(application) {
-		var fragment = new PageFragment(body, L10N.localiseView, lineBreakFilter, consoleFilter)
+		var fragment = new ViewTemplate(body, L10N.localiseView, lineBreakFilter, consoleFilter)
 		let mapButton = new EventMapping("input[type='button']", 'click', (event) => { buttonEvent(event, application) })
 		super(fragment, mapButton)
 	}
