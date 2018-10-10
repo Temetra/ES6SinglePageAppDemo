@@ -1,23 +1,23 @@
-import { PageFragment } from "../lib/PageFragment.mjs"
+import { PageFragment, lineBreakFilter, consoleFilter } from "../lib/PageFragment.mjs"
 import { EventMapping, View } from "../lib/View.mjs"
 import { L, L10N } from "../lib/L10N.mjs"
 
 // Page view
-var decisionFragment = new PageFragment(model => `
+var body = (model) => `
 
 	<h2>${L`Hello`} ${model.name}</h2>
 	<p>${L`Pick something from the list`}:</p>
-	<div>${nestedFragment.render(model.options)}</div>
+	<div>${nestedFragment(model.options)}</div>
 
-`)
+`
 
-var nestedFragment = new PageFragment(options => `
+var nestedFragment = (options) => `
 
 	${options.map(option => `
 		<input type="button" class="option" data-item="${option.id}" value="${option.value}" title="${option.title}"></input>
 	`).join('')}
 
-`)
+	`
 
 // What happens when a button is pressed
 function buttonEvent(event, application) {
@@ -29,8 +29,9 @@ function buttonEvent(event, application) {
 // Events use an arrow function closure to pass application to callback
 var ViewSelection = class extends View {
 	constructor(application) {
+		var fragment = new PageFragment(body, L10N.localiseView, lineBreakFilter, consoleFilter)
 		let mapButton = new EventMapping("input[type='button']", 'click', (event) => { buttonEvent(event, application) })
-		super(decisionFragment, mapButton, L10N.localiseView)
+		super(fragment, mapButton)
 	}
 }
 
